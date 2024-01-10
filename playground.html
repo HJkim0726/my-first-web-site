@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kim Hyunjun</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <style>
+            .custom-list {
+                list-style-type: circle;
+            }
+            /* Style the navigation bar */
+            header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            }
+
+            nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            }
+
+            nav li {
+            display: inline;
+            margin-right: 20px;
+            }
+
+            nav a {
+            text-decoration: none;
+            color: white;
+            }
+
+            /* Style the sections */
+            section {
+            padding: 20px;
+            }
+            table {
+            border-collapse: collapse;
+            width: 100%;
+            }
+
+            th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+            }
+
+            th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            }
+
+        </style>
+
+        <script>
+            function test_1() {
+
+                const inputValue = document.getElementById("input_1").value;
+                const outputValue = document.getElementById("result_1");
+
+                if (inputValue == 2){
+                    outputValue.textContent = "Correct!";
+                }
+                else {
+                    outputValue.textContent = "Wrong!";
+                }
+            }
+            function test_2() {
+
+                const inputValue = document.getElementById("input_2").value;
+                const outputValue = document.getElementById("result_2");
+
+                if (inputValue == 144){
+                    outputValue.textContent = "Correct!";
+                }
+                else {
+                    outputValue.textContent = "Wrong!";
+                }
+            }
+            function total_score(){
+                const answer_1 = document.getElementById("result_1").textContent;
+                const answer_2 = document.getElementById("result_2").textContent;
+
+                const answerList = [answer_1, answer_2];
+
+                var correct_num = 0;
+                for (const ans of answerList){
+                    if (ans == "Correct!"){
+                        correct_num += 1;
+                    }                  
+                }
+                const score = 50*correct_num;
+                document.getElementById("result_total").textContent = score;
+                
+            }
+        </script>
+
+        <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+
+        <script>
+
+            var Drawing = {
+                shapeList : ["circle", 'rectangle','square', 'triangle'],
+                colorList : ["black", "yellow", "red", "blue", "green"],
+
+                draw_shape : function(){
+                    var shapeId = document.getElementById("shape");
+                    for (const shape of this.shapeList){
+                        const optionElement = document.createElement("option");
+                        optionElement.value = shape;
+                        optionElement.textContent = shape;
+                        shapeId.appendChild(optionElement);
+                    }
+                },
+                draw_color : function(){
+                    var colorId = document.getElementById("color");
+                    for (const color of this.colorList){
+                        const optionElement = document.createElement("option");
+                        optionElement.value = color;
+                        optionElement.textContent = color;
+                        colorId.appendChild(optionElement);
+                    }
+                }
+            }
+            function drawing(){
+                var shapeList = ["circle", 'rectangle','square', 'triangle'];
+                var colorList = ["black", "yellow", "red", "blue", "green"];
+                var shapeId = document.getElementById("shape");
+                for (const shape of shapeList){
+                    const optionElement = document.createElement("option");
+                    optionElement.value = shape;
+                    optionElement.textContent = shape;
+                    shapeId.appendChild(optionElement);
+                }
+
+            }
+        </script>
+
+
+
+        
+
+    </head>
+
+    <body>
+        <header>
+            <nav>
+              <ul>
+                <li><a href="main.html">Main</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="grades.html">Grades</a></li>
+                <li><a href="playground.html">Playground</a></li>
+              </ul>
+            </nav>
+        </header>
+                  
+        <h1>JavaScript Playground</h1>
+        <p>This page is for JavaScript practice.</p>
+        <hr>
+        <h3>Toy 1 : Math Test</h3>
+        <div>
+            <p>[Problem 1]</p>
+            \(x^3-8=0\)<br>
+            \(x\)=<input type="text" id="input_1"> <input type="button" value="Enter" onclick="test_1()"> <span id="result_1"></span></p>
+        </div>
+        <div>
+            <p>[Problem 2]</p>
+            \(\sqrt{x}-12=0\)<br>
+            \(x\)=<input type="text" id="input_2"> <input type="button" value="Enter" onclick="test_2()"> <span id="result_2"></span></p>
+    
+        </div>
+        <span>
+            <input type="button" value="Get Total Score" onclick="total_score()">
+        </span>
+        Your total score is : <span id="result_total" style="font-weight: bold;"></span><br><br>
+        <hr>
+        <h3>Toy 2 : Drawing</h3>
+
+        <label for="shape">Select a shape:</label>
+        <select id="shape" name="shape">
+            <script>
+                Drawing.draw_shape();
+            </script>
+        </select>
+        <br>
+        <label for="color">Select a color:</label>
+        <select id="color" name="color">
+            <script>
+                Drawing.draw_color();
+            </script>
+        </select>
+        
+        
+        
+          
+    </body>
+</html>
